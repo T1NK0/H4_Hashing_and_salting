@@ -26,7 +26,6 @@ switch (userEncryptionType)
     case "1":
         convertedKeyHashedValue = String.Concat(userInput, userKey);
         convertedTextHashedValue = Hashings.SHA1HashValue(convertedKeyHashedValue);
-
         break;
     case "2":
         convertedKeyHashedValue = String.Concat(userInput, userKey);
