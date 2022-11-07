@@ -1,37 +1,60 @@
 ﻿using Hashing;
 using System.Security.Cryptography;
+using System.Text;
 
-Console.WriteLine("Hello, World!");
 IHashing SHA1 = new SHA1Hashing();
 
-var testData = SHA1.HashValue("Test");
+Console.WriteLine("Write a text to hash:");
+string userInput = Console.ReadLine();
 
-Console.WriteLine(testData);
+Console.WriteLine("Choose encryption \n" +
+    "1. SHA1\n" +
+    "2. SHA1 with key\n"
+);
 
-var salt = CreateSalt(32);
-var saltPassword = CreatePasswordHash("Test", salt);
+string userEncryptionType = Console.ReadLine().ToLower();
 
-Console.WriteLine(saltPassword);
+string convertedTextHashedValue = null;
+string convertedKeyHashedValue = null;
 
-Console.ReadKey();
-
-
-static string CreateSalt(int size)
+switch (userEncryptionType)
 {
-    //Generate a cryptographic random number.
-    RandomNumberGenerator rng = RandomNumberGenerator.Create();
-    byte[] buff = new byte[size];
-    rng.GetBytes(buff);
-
-    // Return a Base64 string representation of the random number.
-    return Convert.ToBase64String(buff);
+    case "1":
+        convertedTextHashedValue = SHA1.HashValue(userInput);
+        break;
+    case "2":
+        Console.WriteLine("\nMake a key:");
+        string userKey = Console.ReadLine();
+        convertedTextHashedValue = SHA1.HashValue(userInput);
+        convertedKeyHashedValue = SHA1.HashSalt(userInput, userKey);
+        break;
+    default:
+        break;
 }
 
-string CreatePasswordHash(string pwd, string salt)
+
+Console.WriteLine("Is this validation Y/N");
+
+if (Console.ReadLine() == "y")
 {
-    string saltAndPwd = String.Concat(pwd, salt);
+    Console.WriteLine("Write the hashed text");
 
-    var result = SHA1.HashValue(saltAndPwd);
+    string UserInputHashedValue = Console.ReadLine();
 
-    return result;
+
+    if(UserInputHashedValue == SHA1.HashValue(userInput))
+    {
+        Console.WriteLine("It's a match!");
+    } else
+    {
+        Console.WriteLine("That ain't right!");
+    }
+}
+else
+{
+    Console.WriteLine("Your text hashed is:\n" + convertedTextHashedValue);
+    if (convertedKeyHashedValue != null)
+    {
+        Console.WriteLine("Your hashed key is: \n" + convertedKeyHashedValue);
+    }
 }

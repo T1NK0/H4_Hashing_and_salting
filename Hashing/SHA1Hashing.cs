@@ -9,9 +9,15 @@ namespace Hashing
 {
     public class SHA1Hashing : IHashing
     {
-        public string HashSalt(string formValue, string saltKey)
+        static private HMAC myMAC = null;
+
+        public string HashSalt(string userInput, string key)
         {
-            throw new NotImplementedException();
+            string saltAndUserInput = String.Concat(userInput, key);
+
+            var result = HashValue(saltAndUserInput);
+
+            return result;
         }
 
         public string HashValue(string formValue)
@@ -26,6 +32,7 @@ namespace Hashing
                 StringBuilder sb = new StringBuilder();
                 foreach (byte b in result)
                 {
+                    //ToString("x2") is to format hexadecimal to text.
                     sb.Append(b.ToString("x2"));
                 }
 

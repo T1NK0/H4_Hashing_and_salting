@@ -10,5 +10,6 @@ namespace Hashing
     {
         string HashValue(string formValue);
         string HashSalt(string formValue, string saltKey);
+        //bool CheckAuthenticity(byte[] mes, byte[] mac, byte[] ke);
     }
 }

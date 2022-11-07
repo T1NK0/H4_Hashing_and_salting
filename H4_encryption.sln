@@ -3,11 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "H4_encryption", "H4_encryption\H4_encryption.csproj", "{3B31ADFA-2874-43A1-BC3F-097450D9F056}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hashing", "Hashing\Hashing.csproj", "{1226E9B0-63CE-4341-B694-5DD7C11617A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashing", "Hashing\Hashing.csproj", "{1226E9B0-63CE-4341-B694-5DD7C11617A6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleDev", "ConsoleDev\ConsoleDev.csproj", "{23D4F709-10B6-40C5-9CE4-1A181CFF9D30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDev", "ConsoleDev\ConsoleDev.csproj", "{23D4F709-10B6-40C5-9CE4-1A181CFF9D30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3B31ADFA-2874-43A1-BC3F-097450D9F056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B31ADFA-2874-43A1-BC3F-097450D9F056}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B31ADFA-2874-43A1-BC3F-097450D9F056}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B31ADFA-2874-43A1-BC3F-097450D9F056}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1226E9B0-63CE-4341-B694-5DD7C11617A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1226E9B0-63CE-4341-B694-5DD7C11617A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1226E9B0-63CE-4341-B694-5DD7C11617A6}.Release|Any CPU.ActiveCfg = Release|Any CPU

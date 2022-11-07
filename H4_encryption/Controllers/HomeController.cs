@@ -16,24 +16,14 @@ namespace H4_encryption.Controllers
             this.hashingFactory = hashingFactory;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         [HttpGet]
         public IActionResult Hashing()
         {
-            return View(new TestViewModel());
+            return View(new HashingViewModel());
         }
 
         [HttpPost]
-        public IActionResult Hashing()
+        public IActionResult Hashing(string userInput)
         {
             return View(new HashingViewModel());
         }
