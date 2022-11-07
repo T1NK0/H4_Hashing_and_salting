@@ -16,11 +16,14 @@ Console.WriteLine("Choose encryption \n" +
     "3. MD5\n"
 );
 
+//User encryption choice.
 string userEncryptionType = Console.ReadLine().ToLower();
 
+//Make our variables so we can call them outside of the scope of the switchcase.
 string convertedTextHashedValue = null;
 string convertedKeyHashedValue = null;
 
+//Call to our different values of 
 switch (userEncryptionType)
 {
     case "1":
@@ -39,12 +42,14 @@ switch (userEncryptionType)
         break;
 }
 
+
 Console.WriteLine("Is this validation y/n");
 
 if (Console.ReadLine() == "y")
 {
     Console.WriteLine("Write the hashed text");
 
+    //Set the hashvalue to check compared to our string.
     string UserInputHashedValue = Console.ReadLine();
 
 
