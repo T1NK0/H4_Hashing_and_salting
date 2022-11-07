@@ -23,7 +23,7 @@ string userEncryptionType = Console.ReadLine().ToLower();
 string convertedTextHashedValue = null;
 string convertedKeyHashedValue = null;
 
-//Call to our different values of 
+//Call to our different hashes
 switch (userEncryptionType)
 {
     case "1":
