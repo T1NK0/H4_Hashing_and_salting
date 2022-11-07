@@ -2,14 +2,18 @@
 using System.Security.Cryptography;
 using System.Text;
 
-IHashing SHA1 = new SHA1Hashing();
+IHashing Hashings = new Hashings();
 
 Console.WriteLine("Write a text to hash:");
 string userInput = Console.ReadLine();
 
+Console.WriteLine("\nMake a key (leave blank for no key):");
+string userKey = Console.ReadLine();
+
 Console.WriteLine("Choose encryption \n" +
     "1. SHA1\n" +
-    "2. SHA1 with key\n"
+    "2. SHA256\n" + 
+    "3. MD5\n"
 );
 
 string userEncryptionType = Console.ReadLine().ToLower();
@@ -20,20 +24,23 @@ string convertedKeyHashedValue = null;
 switch (userEncryptionType)
 {
     case "1":
-        convertedTextHashedValue = SHA1.HashValue(userInput);
+        convertedKeyHashedValue = String.Concat(userInput, userKey);
+        convertedTextHashedValue = Hashings.SHA1HashValue(convertedKeyHashedValue);
+
         break;
     case "2":
-        Console.WriteLine("\nMake a key:");
-        string userKey = Console.ReadLine();
-        convertedTextHashedValue = SHA1.HashValue(userInput);
-        convertedKeyHashedValue = SHA1.HashSalt(userInput, userKey);
+        convertedKeyHashedValue = String.Concat(userInput, userKey);
+        convertedTextHashedValue = Hashings.SHA256HashValue(convertedKeyHashedValue);
+        break;    
+    case "3":
+        convertedKeyHashedValue = String.Concat(userInput, userKey);
+        convertedTextHashedValue = Hashings.MD5HashValue(convertedKeyHashedValue);
         break;
     default:
         break;
 }
 
-
-Console.WriteLine("Is this validation Y/N");
+Console.WriteLine("Is this validation y/n");
 
 if (Console.ReadLine() == "y")
 {
@@ -42,7 +49,7 @@ if (Console.ReadLine() == "y")
     string UserInputHashedValue = Console.ReadLine();
 
 
-    if(UserInputHashedValue == SHA1.HashValue(userInput))
+    if(UserInputHashedValue == convertedTextHashedValue)
     {
         Console.WriteLine("It's a match!");
     } else
@@ -53,8 +60,4 @@ if (Console.ReadLine() == "y")
 else
 {
     Console.WriteLine("Your text hashed is:\n" + convertedTextHashedValue);
-    if (convertedKeyHashedValue != null)
-    {
-        Console.WriteLine("Your hashed key is: \n" + convertedKeyHashedValue);
-    }
 }

@@ -8,8 +8,8 @@ namespace Hashing
 {
     public interface IHashing
     {
-        string HashValue(string formValue);
-        string HashSalt(string formValue, string saltKey);
-        //bool CheckAuthenticity(byte[] mes, byte[] mac, byte[] ke);
+        string SHA1HashValue(string convertedKeyHashedValue);
+        string SHA256HashValue(string convertedKeyHashedValue);
+        string MD5HashValue(string convertedKeyHashedValue);
     }
 }

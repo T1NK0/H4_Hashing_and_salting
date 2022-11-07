@@ -10,7 +10,7 @@ namespace Hashing.Factories
     {
         public IHashing CreateHashing()
         {
-            return new SHA1Hashing();
+            return new Hashings();
         }
     }
 }
