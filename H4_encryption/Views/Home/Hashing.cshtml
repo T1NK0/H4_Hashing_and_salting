@@ -1,0 +1,30 @@
+﻿@model HashingViewModel
+
+@{
+    string hashing = Request.Form["hashing"];
+    ViewData["Title"] = "Hashing";
+}
+
+<h1>@Model.OutputHashed</h1>
+
+<form method="post">
+    <fieldset>
+        <legend>Add Customer</legend>
+        <div>
+            <label for="hashing" class="form-label">Company Name:</label>
+            <input type="text" name="hashing" value="@Request.Form["companyname"]" class="form-control"/>
+        </div>
+        <div>
+            <label>&nbsp;</label>
+            <input type="submit" value="Submit" class="submit btn btn-primary" />
+        </div>
+    </fieldset>
+</form>
+
+<form>
+    <div class="mb-3">
+        <label for="textToHash" class="form-label">Text to encrypt</label>
+        <input type="text" class="form-control" id="textToHash">
+    </div>
+    <button type="submit" class="btn btn-primary">Krypter</button>
+</form>
