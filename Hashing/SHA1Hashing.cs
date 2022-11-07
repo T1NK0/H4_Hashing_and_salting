@@ -18,6 +18,8 @@ namespace Hashing
                 byte[] stringConvertedToBytes = Encoding.UTF8.GetBytes(formValue);
                 byte[] result = sha1Hashing.ComputeHash(stringConvertedToBytes);
 
+                Console.WriteLine(BitConverter.ToString(result));
+
                 return MyStringBuilder(result);
             }
         }        
@@ -31,6 +33,8 @@ namespace Hashing
                 byte[] stringConvertedToBytes = Encoding.UTF8.GetBytes(formValue);
                 byte[] result = sha1Hashing.ComputeHash(stringConvertedToBytes);
 
+                Console.WriteLine(BitConverter.ToString(result));
+
                 return MyStringBuilder(result);
             }
         }        
@@ -43,6 +47,8 @@ namespace Hashing
             {
                 byte[] stringConvertedToBytes = Encoding.UTF8.GetBytes(formValue);
                 byte[] result = sha1Hashing.ComputeHash(stringConvertedToBytes);
+
+                Console.WriteLine(BitConverter.ToString(result));
 
                 return MyStringBuilder(result);
             }
